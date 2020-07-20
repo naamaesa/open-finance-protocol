@@ -116,7 +116,7 @@ Response:
 [2,42,"unsubscribe",["public", ["eurusd.trades","tickers"]]]
 ```
 
-The response returns the list of remaining subscriptions for the current connection after the unsubsciption is performed.
+The response returns the list of remaining subscriptions for the current connection after the unsubscription is performed.
 
 ### Orders
 
@@ -131,11 +131,11 @@ In our standard, the parameters order plays an important role as the position of
 |     s      | GTC* IOC, FOK | Stop                                             |
 |     sl     | GTC* IOC, FOK | Stop-limit (available flags: OCO)                |
 
-**All arguments that used for order creation order**:
+**All arguments that used for order creation request**:
 
 | №    | Name          | Data type | Description                                    |
 | ---- | ------------- | --------- | ---------------------------------------------- |
-| 1    | instrument    | string    | Used to specify instrument for order "BTC/USD" |
+| 1    | instrument    | string    | Used to specify instrument for order "btcusd" |
 | 2    | order_type    | string    | Used to specify order type                     |
 | 3    | side          | string    | Used to specify order side, "buy" or "sell"    |
 | 4    | quantity      | string    | An amount that placed within the order         |
@@ -193,7 +193,7 @@ Arguments with corresponding numeration of **market** order **request**:
 
 |  №   | Name       | Data type |  Example   |
 | :--: | ---------- | :-------: | :--------: |
-|  1   | instrument |  string   | "BTC/USD"  |
+|  1   | instrument |  string   | "btcusd"  |
 |  2   | order_type |  string   |    "m"     |
 |  3   | side       |  string   |   "buy"    |
 |  4   | quantity   |  string   | "0.100000" |
@@ -203,7 +203,7 @@ Arguments with corresponding numeration of **market** order **response**:
 
 |  №   | Name          | Data type |    Example    |
 | :--: | ------------- | :-------: | :-----------: |
-|  1   | instrument    |  string   |   "BTC/USD"   |
+|  1   | instrument    |  string   |   "btcusd"   |
 |  2   | order_type    |  string   |      "m"      |
 |  3   | side          |  string   |     "buy"     |
 |  4   | quantity      |  string   |  "0.100000"   |
@@ -218,13 +218,13 @@ Example of the messages
 Request:
 
 ```json
-[,42,"create_order",["BTC/USD", "m", "buy", "0.100000", "1234567"]
+[,42,"create_order",["btcusd", "m", "buy", "0.100000", "1234567"]
 ```
 
 Response:
 
 ```json
-[2,42,"create_order",["BTC/USD", "m", "buy", "0.100000", "1234567", 1588678924349, "filled", "", "8745635"]
+[2,42,"create_order",["btcusd", "m", "buy", "0.100000", "1234567", 1588678924349, "filled", "", "8745635"]
 ```
 
 #### Limit order
@@ -235,7 +235,7 @@ Arguments with corresponding numeration of **limit** order **request**:
 
 |  №   | Name       | Data type |  Example   |
 | :--: | ---------- | :-------: | :--------: |
-|  1   | instrument |  string   | "BTC/USD"  |
+|  1   | instrument |  string   | "btcusd"   |
 |  2   | order_type |  string   |    "l"     |
 |  3   | side       |  string   |   "buy"    |
 |  4   | quantity   |  string   | "0.250000" |
@@ -248,7 +248,7 @@ Arguments with corresponding numeration of **limit** order **response**:
 
 |  №   | Name          | Data type |             Example             |
 | :--: | ------------- | :-------: | :-----------------------------: |
-|  1   | instrument    |  string   |            "BTC/USD"            |
+|  1   | instrument    |  string   |            "btcusd"             |
 |  2   | order_type    |  string   |               "l"               |
 |  3   | side          |  string   |              "buy"              |
 |  4   | quantity      |  string   |           "0.250000"            |
@@ -266,13 +266,13 @@ Example of the messages
 Request:
 
 ```json
-[1,42,"create_order",["BTC/USD", "l", "buy", "0.250000", "9120.00", 2, "1234568", 0]
+[1,42,"create_order",["btcusd", "l", "buy", "0.250000", "9120.00", 2, "1234568", 0]
 ```
 
 Response:
 
 ```json
-[2,42,"create_order",["BTC/USD", "l", "buy", "0.250000", "9120.00", 2, "1234568", 0, 1588678984376, "rejected", "insufficient_balance", "8745985"]
+[2,42,"create_order",["btcusd", "l", "buy", "0.250000", "9120.00", 2, "1234568", 0, 1588678984376, "rejected", "insufficient_balance", "8745985"]
 ```
 
 #### Stop order
@@ -281,7 +281,7 @@ Arguments with corresponding numeration of **stop** order **request**:
 
 |  №   | Name       | Data type |  Example   |
 | :--: | ---------- | :-------: | :--------: |
-|  1   | instrument |  string   | "BTC/USD"  |
+|  1   | instrument |  string   | "btcusd"   |
 |  2   | order_type |  string   |    "s"     |
 |  3   | side       |  string   |   "sell"   |
 |  4   | quantity   |  string   | "0.250000" |
@@ -294,7 +294,7 @@ Arguments with corresponding numeration of **stop** order **response**:
 
 |  №   | Name          | Data type |    Example    |
 | :--: | ------------- | :-------: | :-----------: |
-|  1   | instrument    |  string   |   "BTC/USD"   |
+|  1   | instrument    |  string   |   "btcusd"    |
 |  2   | order_type    |  string   |      "s"      |
 |  3   | side          |  string   |    "sell"     |
 |  4   | quantity      |  string   |  "0.250000"   |
@@ -312,13 +312,13 @@ Example of the messages
 Request:
 
 ```
-[1,42,"create_order",["BTC/USD", "s", "sell", "0.250000", "9120.00", 2, "1234568", 0]
+[1,42,"create_order",["btcusd", "s", "sell", "0.250000", "9120.00", 2, "1234568", 0]
 ```
 
 Response:
 
 ```
-[2,42,"create_order",["BTC/USD", "s", "sell", "0.250000", "9120.00", 2, "1234568", 0, 1588678984376, "active", "", "8745985"]
+[2,42,"create_order",["btcusd", "s", "sell", "0.250000", "9120.00", 2, "1234568", 0, 1588678984376, "active", "", "8745985"]
 ```
 
 #### Stop-limit order
@@ -327,7 +327,7 @@ Arguments with corresponding numeration of **stop-limit** order **request**:
 
 |  №   | Name       | Data type |  Example   |
 | :--: | ---------- | :-------: | :--------: |
-|  1   | instrument |  string   | "BTC/USD"  |
+|  1   | instrument |  string   | "btcusd"   |
 |  2   | order_type |  string   |    "sl"    |
 |  3   | side       |  string   |   "buy"    |
 |  4   | quantity   |  string   | "0.250000" |
@@ -341,7 +341,7 @@ Arguments with corresponding numeration of **stop-limit** order **response**:
 
 |  №   | Name          | Data type |    Example    |
 | :--: | ------------- | :-------: | :-----------: |
-|  1   | instrument    |  string   |   "BTC/USD"   |
+|  1   | instrument    |  string   |   "btcusd"    |
 |  2   | order_type    |  string   |     "sl"      |
 |  3   | side          |  string   |     "buy"     |
 |  4   | quantity      |  string   |  "0.250000"   |
@@ -360,13 +360,13 @@ Example of the messages
 Request:
 
 ```
-[1,42,"create_order",["BTC/USD", "sl", "buy", "0.250000", "9120.00", "9118.00", 2, "1234568", 0]
+[1,42,"create_order",["btcusd", "sl", "buy", "0.250000", "9120.00", "9118.00", 2, "1234568", 0]
 ```
 
 Response:
 
 ```
-[2,42,"create_order",["BTC/USD", "sl", "buy", "0.250000", "9120.00", "9118.00", 2, "1234568", 0, 1588678984376, "active", "", "8745985"]
+[2,42,"create_order",["btcusd", "sl", "buy", "0.250000", "9120.00", "9118.00", 2, "1234568", 0, 1588678984376, "active", "", "8745985"]
 ```
 
 #### Bulk order
@@ -399,19 +399,19 @@ Example of "**list_instruments**" request:
 
 In response method sends information about requested instruments. Each instrument described with three arguments.
 
-|  №   | Name                | Data type |  Example  |
-| :--: | ------------------- | :-------: | :-------: |
-|  1   | type                |  string   |  "spot"   |
-|  2   | instrument          |  string   | "BTC/USD" |
-|  3   | base_unit           |  string   | "BTC" |
-|  4   | quote_unit          |  string   | "USD" |
-|  5   | min_price_increment |   float   |    0.1    |
+|  №   | Name                | Data type |  Example |
+| :--: | ------------------- | :-------: | :------: |
+|  1   | type                |  string   |  "spot"  |
+|  2   | instrument          |  string   | "btcusd" |
+|  3   | base_unit           |  string   |  "btc"   |
+|  4   | quote_unit          |  string   |  "usd"   |
+|  5   | min_price_increment |   float   |   0.1    |
 
 
 Example of "**list_instruments**" response:
 
 ```
-[2,42,"list_instruments",["spot", "BTC/USD", 0.1, "spot", "ETH/USD", 0.01]
+[2,42,"list_instruments",["spot", "btcusd", 0.1, "spot", "ETH/USD", 0.01]
 ```
 
 ### Limits Request
@@ -432,14 +432,14 @@ The arguments part of the response represented in the form of nested arrays. Eac
 |  2   | status      |  string   |    "active"    |
 |  3   | timestamp   |  integer  | 1588678984376  |
 |  4   | instruments |  integer  |       2        |
-|  5   | instrument  |  string   |   "BTC/USD"    |
+|  5   | instrument  |  string   |    "btcusd"    |
 |  6   | maxBuy      |  string   |      "250"     |
 |  7   | maxSell     |  string   |      "100"     |
 
 Example of the  **get_limits** response:
 
 ```
-[2,42,"get_limits",[["ID5BA21D4CE5", "active", 1588678984376, 2, "BTC/USD", "250", "100", "ETH/USD", "620", "285"], [...], [...]]
+[2,42,"get_limits",[["ID5BA21D4CE5", "active", 1588678984376, 2, "btcusd", "250", "100", "ETH/USD", "620", "285"], [...], [...]]
 ```
 
 ## Public events streams
@@ -541,11 +541,12 @@ Array of tickers
 Orderbook Snapshot
 
 ```json
-[3, "obSnap", [0, [["10", "1"]], [["5", "1"]]]]
+[3, "obs", ["btcusd", 0, [["10", "1"]], [["5", "1"]]]]
 ```
 
 | Argument | Description                     |
 | -------- | ------------------------------- |
+| Market   |                                 |
 | Sequence | Sequentially increasing number  |
 | Sells    | Array of sell side price levels |
 | Buys     | Array of buy side price levels  |
@@ -555,13 +556,14 @@ Orderbook Snapshot
 Orderbook update
 
 ```json
-[3, "obInc", [1, "asks", ["10", "1"]]]
+[3, "obi", ["btcusd", 1, "asks", ["10", "1"]]]
 ```
 
 **Payload**
 
 | Argument   | Description                                             |
 | ---------- | ------------------------------------------------------- |
+| Market     |                                                         |
 | Sequence   | Sequentially increasing number                          |
 | Side       | Side updated, "asks" or "bids"                          |
 | PriceLevel | Price and amount, empty amount means pricelevel deleted |
@@ -573,13 +575,12 @@ Orderbook update
 ```json
 [
   4,
-  "order",
+  "ou",
   [
     "btcusd",
     2,
     "7acbbc84-939d-11ea-a827-1831bf9834b0",
     "buy",
-    "bid",
     "done",
     "limit",
     "1",
@@ -601,7 +602,6 @@ Orderbook update
 | ID              | Unique order ID            |
 | UUID            | Unique order uuid          |
 | Side            | "buy" or "sell"            |
-| Kind            | "bid" or "ask"             |
 | State           | Current state of the order |
 | Type            | Order type                 |
 | Price           | Order price                |
@@ -646,6 +646,8 @@ Orderbook update
 | OrderUUID  | User's trade order UUID      |
 | Side       | User's trade order side      |
 | Taker side | Trade taker side             |
+| Fee        | Fee charged for this trade   |
+| Fee Curr.  |                              |
 | Timestamp  | Trade timestamp              |
 
 ### Balance change
